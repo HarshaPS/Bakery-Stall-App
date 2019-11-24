@@ -1,0 +1,17 @@
+{
+  "name": "bakery-stall-app",
+  "version": "1.0.0",
+  "description": "Bakery stall application to buy products in best and effictive price for a customer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "npm jest"
+  },
+  "author": "Harsha PS (psharsha16@gmail.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "jest": "^24.9.0"
+  }
+}
