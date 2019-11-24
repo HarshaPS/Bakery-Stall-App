@@ -17,7 +17,7 @@ class ProductPackService {
     }
 
     calcuatePacks(productPacks, quantity) {
-        let localStorageKey = '' + quantity + '#' + JSON.stringify(productPacks);
+        let localStorageKey = `${quantity}#${JSON.stringify(productPacks)}`;
         let localStorage = this.minPack[localStorageKey];
         if (localStorage) {
             return new Pack(localStorage);

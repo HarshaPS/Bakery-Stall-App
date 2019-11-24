@@ -18,6 +18,9 @@ class BakeryStall {
     }
 }
 
+export {
+    BakeryStall
+}
+
 const bakeryStall = new BakeryStall
 bakeryStall.processOrders();
-

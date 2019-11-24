@@ -1,0 +1,22 @@
+{
+    "rules": {
+        "no-console": 0,
+        "indent": 1,
+        "quotes": [
+            2,
+            "single"
+        ],
+        "linebreak-style": [
+            1,
+            "windows"
+        ],
+        "semi": [
+            2,
+            "always"
+        ]
+    },
+    "env": {
+        "es6": true,
+        "node": true
+    }
+}

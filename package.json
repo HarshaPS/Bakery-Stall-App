@@ -4,14 +4,33 @@
   "description": "Bakery stall application to buy products in best and effictive price for a customer",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "npm jest"
+    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "start": "npm run build && node dist/index.js",
+    "test": "jest",
+    "test:capture": "jest --coverage > coverage.txt",
+    "report-coverage": "npm test:capture"
   },
   "author": "Harsha PS (psharsha16@gmail.com)",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
     "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "jslint": "^0.12.1",
+    "rimraf": "^3.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.7.0"
   }
 }
