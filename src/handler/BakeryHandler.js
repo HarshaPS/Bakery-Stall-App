@@ -13,16 +13,16 @@ class BakeryHandler {
         if (bakeryItems === undefined || bakeryItems === '') {
             throw new Error('Please provide valid input');
         }
-        let itemsList = bakeryItems.split('/n');
+        let itemsList = bakeryItems.split('\n');
         return itemsList.map(eachDetail => {
             let item = eachDetail.split(' ');
-            return new Product(item[0], item[1]);
+            return new Product(item[1], item[0]);
         });
     }
 
     checkoutItems(productList) {
-        if (orders.length <= 0) {
-            console.log('There are no orders to checkout');
+        if (productList.length <= 0) {
+            console.log('There are no products to checkout');
         } else {
             productList.forEach(product => {
                 try {

@@ -22,11 +22,11 @@ class BakeryService {
         if (packResult.isPackNotAvailable()) {
             throw new Error('Cannot create packs for ' + quantity + ', please try another quantity.');
         }
-        return this.calculatePackPrice(productCode, packResult);
+        return this.calculateProductPrice(productCode, packResult);
     }
 
     calculateProductPrice(productCode, packResult) {
-        let bakeryProductMeta = this.getProductMetadata(code);
+        let bakeryProductMeta = this.getProductMetadata(productCode);
         let totalPackResult = {
             productCode,
             quantity: 0,
@@ -39,14 +39,14 @@ class BakeryService {
             totalPackResult.totalPrice += bakeryProductMeta.packs[key];
             totalPackResult.breakdown[key] = totalPackResult.breakdown[key] || {
                 quantity: 0,
-                name: `${key} $ ${bakeryProductMeta.packs[key].toFixed(2)}`
+                name: `${key} $${bakeryProductMeta.packs[key].toFixed(2)}`
             };
             totalPackResult.breakdown[key].quantity++;
         });
         return totalPackResult;
     }
 
-    async getProductMetadata(code) {
+    getProductMetadata(code) {
         return BakeryData[code];
     }
 

@@ -18,7 +18,7 @@ class ProductPackService {
 
     calcuatePacks(productPacks, quantity) {
         let localStorageKey = '' + quantity + '#' + JSON.stringify(productPacks);
-        localStorage = this.minPackCache[localStorageKey];
+        let localStorage = this.minPack[localStorageKey];
         if (localStorage) {
             return new Pack(localStorage);
         }
@@ -32,7 +32,7 @@ class ProductPackService {
                 break;
             } else if (quantity > p) {
                 let subresult = this.calcuatePacks(productPacks, quantity - p);
-                if (!subresult.isPackUndefined()) {
+                if (!subresult.isPackNotAvailable()) {
                     if (!minResult || minResult.getPackQuantity() > subresult.getPackQuantity())
                         minResult = subresult, minPack = p;
                 } else {

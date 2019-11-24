@@ -1,5 +1,4 @@
 import { readFileSync } from 'fs';
-import BakeryInputs from './Input.txt';
 import { BakeryHandler } from './src/handler/BakeryHandler';
 
 class BakeryStall {
@@ -9,7 +8,7 @@ class BakeryStall {
     }
     async processOrders() {
         try {
-            const inputBuffer = readFileSync(BakeryInputs);
+            const inputBuffer = readFileSync('./Input.txt');
             const productsList = await this.bakeryHandler.readItems(inputBuffer.toString());
             this.bakeryHandler.checkoutItems(productsList);
         } catch (error) {
