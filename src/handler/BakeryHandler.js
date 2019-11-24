@@ -29,24 +29,12 @@ class BakeryHandler {
                     let {
                         totalPrice,
                         breakdown
-                    } = this.bakeryService.getProductPrice(product.code, product.qty);
+                    } = this.bakeryService.getProductPrice(product.code, product.quantity);
                     console.log(`${product.quantity} ${product.code} $${totalPrice.toFixed(2)}`);
                     Object.keys(breakdown || {}).forEach(each => {
                         let bk = breakdown[each];
                         console.log(`\t ${bk.quantity} x ${bk.name}`);
                     });
-                    //     let {
-                    //         totalPrice,
-                    //         packs
-                    //     } = await this.bakeryService.getProductInPacks(product);
-                    //     if (packs.length > 0) {
-                    //         console.log(`${product.code} ${product.quantity} '$'${totalPrice}`);
-                    //         packs.map(eachPack => {
-                    //             console.log(`\t ${eachPack.quantity} x ${eachPack.pack} ${eachPack.price}`);
-                    //         })
-                    //     } else {
-                    //         console.log('Unable to fetch minimum packs for the given product : ', product);
-                    //     }
                 } catch (error) {
                     return error;
                 }

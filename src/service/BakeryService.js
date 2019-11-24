@@ -1,55 +1,13 @@
 import BakeryData from '../client/BakeryClient.json';
-import {ProductPackService} from './ProductPackService';
-import {Pack} from '../model/Pack';
+import {
+    ProductPackService
+} from './ProductPackService';
 
 class BakeryService {
 
-    constructor(){
+    constructor() {
         this.productPackService = new ProductPackService();
     }
-
-    // async getProductInPacks(product) {
-    //     let {
-    //         code,
-    //         quantity
-    //     } = product;
-
-    //     let productPacks = await this.getProductPacks(code);
-    //     if (quantity < productPacks[-1]) {
-    //         throw new Error('Invalid quantity');
-    //     } else {
-    //         let productPacksObj = [];
-    //         let remainingPacks = 0;
-    //         let totalPrice = 0;
-
-    //         for (let i = 0; i < productPacks.legnth; i++) {
-    //             let packQty = 0;
-    //             if (quantity > productPacks[i]) {
-    //                 let price = await this.getPackPrice(code, productPacks[i].toString());
-    //                 packQty = quantity / productPacks[i];
-    //                 remainingPacks = quantity % productPacks[i];
-
-    //                 productPacksObj.push({
-    //                     "pack": productPacks[i].toString(),
-    //                     "quantity": packQty,
-    //                     "price": price
-    //                 });
-
-    //                 totalPrice += packQty * price;
-    //                 if (remainingPacks === 0) {
-    //                     break;
-    //                 } else {
-
-    //                 }
-    //             }
-    //         }
-
-    //         return {
-    //             "totalPrice": totalPrice,
-    //             "packs": productPacksObj
-    //         }
-    //     }
-    // }
 
     getProductPrice(productCode, quantity) {
         let bakeryMetaData = this.getProductMetadata(productCode);
@@ -90,38 +48,6 @@ class BakeryService {
 
     async getProductMetadata(code) {
         return BakeryData[code];
-    }
-
-    async getProductPacks(code) {
-        let bakery = this.getBakeryMetadata(code);
-        return bakery ? Object.keys(bakery.packs).map(x => {
-            return parseInt(x);
-        }).sort((a, b) => {
-            return b - a;
-        }) : null;
-    }
-
-    async getPackPrice(code, pack) {
-        let bakery = this.getBakeryMetadata(code);
-        let packs = bakery.packs;
-        return packs[pack];
-    }
-
-    getMinPacks(originalQty, packs) {
-        let incQty = 0,
-            decQty = 0;
-        if (originalQty >= packs[0]) {
-            let tempQuotient = 0;
-            let rem = 0;
-            tempQuotient = originalQty / packs[0];
-            rem = originalQty % packs[0];
-            while (rem !== 0) {
-
-            }
-        } else {
-            return {}
-        }
-
     }
 
 }
