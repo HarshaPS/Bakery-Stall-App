@@ -1,13 +1,10 @@
-require('babel-register')({
+module.exports = {
     "presets": [
-        [
-            "env", {
-                "targets": {
-                    "node": "current"
-            }
-        }
-        ]
-    ]
-})
-require("babel-core/register");
-require("babel-polyfill");
+        "es2015",
+        "react"
+    ],
+    "test": [
+        "jest"
+    ],
+    "plugins": ["jest-hoist"]
+};

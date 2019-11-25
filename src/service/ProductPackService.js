@@ -1,6 +1,4 @@
-import {
-    Pack
-} from '../model/Pack';
+const Pack = require('../model/Pack');
 
 class ProductPackService {
 
@@ -49,6 +47,4 @@ class ProductPackService {
 
 }
 
-export {
-    ProductPackService
-}
+module.exports = ProductPackService;

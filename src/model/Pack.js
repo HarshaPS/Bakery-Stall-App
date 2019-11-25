@@ -53,6 +53,4 @@ class Pack {
 
 }
 
-export {
-    Pack
-};
+module.exports = Pack;

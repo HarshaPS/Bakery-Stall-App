@@ -1,15 +1,16 @@
-import { readFileSync } from 'fs';
-import { BakeryHandler } from './src/handler/BakeryHandler';
+const { readFileSync } = require('fs');
+const BakeryHandler = require('./src/handler/BakeryHandler');
 
 class BakeryStall {
 
     constructor() {
         this.bakeryHandler = new BakeryHandler();
     }
-    async processOrders() {
+    
+    processOrders() {
         try {
             const inputBuffer = readFileSync('./Input.txt');
-            const productsList = await this.bakeryHandler.readItems(inputBuffer.toString());
+            const productsList = this.bakeryHandler.readItems(inputBuffer.toString());
             this.bakeryHandler.checkoutItems(productsList);
         } catch (error) {
             console.log('Error occured while processing orders ', error);
@@ -17,10 +18,7 @@ class BakeryStall {
         }
     }
 }
-
-export {
-    BakeryStall
-}
+module.exports = BakeryStall;
 
 const bakeryStall = new BakeryStall
 bakeryStall.processOrders();

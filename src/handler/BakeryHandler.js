@@ -1,7 +1,5 @@
-import Product from '../model/Product';
-import {
-    BakeryService
-} from '../service/BakeryService';
+const Product = require('../model/Product');
+const BakeryService = require('../service/BakeryService');
 
 class BakeryHandler {
 
@@ -23,6 +21,7 @@ class BakeryHandler {
     checkoutItems(productList) {
         if (productList.length <= 0) {
             console.log('There are no products to checkout');
+            throw new Error("Invalid data input");
         } else {
             productList.forEach(product => {
                 try {
@@ -43,6 +42,4 @@ class BakeryHandler {
     }
 }
 
-export {
-    BakeryHandler
-}
+module.exports = BakeryHandler;

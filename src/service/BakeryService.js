@@ -1,7 +1,5 @@
-import BakeryData from '../client/BakeryClient.json';
-import {
-    ProductPackService
-} from './ProductPackService';
+const BakeryData = require('../client/BakeryClient.json');
+const ProductPackService = require('./ProductPackService');
 
 class BakeryService {
 
@@ -11,10 +9,10 @@ class BakeryService {
 
     getProductPrice(productCode, quantity) {
         let bakeryMetaData = this.getProductMetadata(productCode);
-        let productPackOptions = this.productPackService.getProductPackOptions(bakeryMetaData);
         if (isNaN(+quantity) || quantity < 1) {
             throw new Error(`Invalid quantity: ${quantity}`);
         }
+        let productPackOptions = this.productPackService.getProductPackOptions(bakeryMetaData);
         if (!productPackOptions || productPackOptions.length === 0) {
             throw new Error(`Product not found by the code: ${productCode}`);
         }
@@ -22,6 +20,7 @@ class BakeryService {
         if (packResult.isPackNotAvailable()) {
             throw new Error('Cannot create packs for ' + quantity + ', please try another quantity.');
         }
+        console.log("Pack result : ", packResult);
         return this.calculateProductPrice(productCode, packResult);
     }
 
@@ -52,7 +51,4 @@ class BakeryService {
 
 }
 
-
-export {
-    BakeryService
-}
+module.exports = BakeryService;
