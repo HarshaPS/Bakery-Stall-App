@@ -1,5 +1,5 @@
-const BakeryHandler = require('../../handler/BakeryHandler');
-const BakeryService = require('../../service/BakeryService');
+const BakeryHandler = require('../../handler/Bakery');
+const BakeryService = require('../../service/Bakery');
 
 describe('Bakery Handler', () => {
     it('it should successfully read the products', () => {
@@ -69,7 +69,7 @@ describe('Bakery Handler', () => {
             }
         ]
         const handler = new BakeryHandler();
-        BakeryService.prototype.getProductPrice = jest.fn().mockImplementationOnce(() => Promise.reject(value));
+        BakeryService.prototype.getProductPrice = jest.fn().mockImplementationOnce(() => Promise.reject(new Error()));
         let result;
         try {
             result = handler.checkoutItems(givenInput);

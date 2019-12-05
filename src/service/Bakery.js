@@ -1,5 +1,5 @@
 const BakeryData = require('../client/BakeryClient.json');
-const ProductPackService = require('./ProductPackService');
+const ProductPackService = require('./ProductPack');
 
 class BakeryService {
 

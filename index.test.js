@@ -1,5 +1,5 @@
 const BakeryStall = require('./index.js');
-const BakeryHandler = require('./src/handler/BakeryHandler');
+const BakeryHandler = require('./src/handler/Bakery');
 
 describe('Bakery Stall', () => {
     it('it should successfully process the products', () => {

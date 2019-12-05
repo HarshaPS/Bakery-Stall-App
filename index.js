@@ -1,5 +1,5 @@
 const { readFileSync } = require('fs');
-const BakeryHandler = require('./src/handler/BakeryHandler');
+const BakeryHandler = require('./src/handler/Bakery');
 
 class BakeryStall {
 
@@ -13,7 +13,6 @@ class BakeryStall {
             const productsList = this.bakeryHandler.readItems(inputBuffer.toString());
             this.bakeryHandler.checkoutItems(productsList);
         } catch (error) {
-            console.log('Error occured while processing orders ', error);
             return error;
         }
     }

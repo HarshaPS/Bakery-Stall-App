@@ -1,4 +1,4 @@
-const ProductPackService = require('../ProductPackService');
+const ProductPackService = require('../ProductPack');
 
 jest.mock('../../model/Pack');
 

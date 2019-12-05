@@ -1,5 +1,5 @@
 const Product = require('../model/Product');
-const BakeryService = require('../service/BakeryService');
+const BakeryService = require('../service/Bakery');
 
 class BakeryHandler {
 

@@ -1,5 +1,5 @@
-const BakeryService = require('../BakeryService');
-const ProductPackService = require('../ProductPackService');
+const BakeryService = require('../Bakery');
+const ProductPackService = require('../ProductPack');
 
 jest.mock('../../model/Pack');
 
